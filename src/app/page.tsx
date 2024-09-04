@@ -1,12 +1,9 @@
-import { Button } from "~/components/common/atoms/input/Button"
-import AdbIcon from '@mui/icons-material/Adb';
+import { Text } from "~/components/common/atoms/data-display/Text";
+
 export default function HomePage() {
   return (
-    <>
-      es la pagina added
-      <div>
-        <Button type="icon" href='#'><AdbIcon/></Button>
-      </div>
-    </>
-  )
+    <div>
+      <Text>TextComponent listo :D</Text>
+    </div>
+  );
 }
