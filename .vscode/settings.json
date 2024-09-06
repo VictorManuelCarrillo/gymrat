@@ -4,5 +4,8 @@
     "cloudinary",
     "commitlint",
     "gymrat"
+  ],
+  "conventionalCommits.scopes": [
+    "button"
   ]
 }
