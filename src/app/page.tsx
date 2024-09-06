@@ -1,12 +1,9 @@
-import Nosotros from "./nosotros/page";
+import { Text } from "~/components/common/atoms/data-display/Text";
 
 export default function HomePage() {
   return (
-    <>
-      es la pagina added
-      <div>
-        <Nosotros/>
-      </div>
-    </>
-  )
+    <div>
+      <Text>TextComponent listo :D</Text>
+    </div>
+  );
 }
