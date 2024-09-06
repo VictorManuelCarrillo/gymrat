@@ -14,14 +14,15 @@ interface ButtonProps {
   endIcon?: React.ReactNode;
   icon?: React.ReactNode;
   href?: string;
+  newTab?: boolean;
 }
 export const Button: React.FC<ButtonProps> = (props) => {
-  const { children, type = 'contained', disabled, fullWidth, size, color, startIcon, endIcon, href } = props;
+  const { children, type = 'contained', disabled, fullWidth, size, color, startIcon, endIcon, href, newTab } = props;
 
   switch (type) {
     case 'text':
       return href && typeof href === 'string' && href.trim() !== '' ? (
-        <Link href={(href && href) || ''}>
+        <Link href={(href && href) || ''} about={newTab ? '_blank' : undefined}>
           <Btn
             variant={type}
             disabled={disabled && disabled}
@@ -45,7 +46,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
       );
     case 'contained':
       return href && typeof href === 'string' && href.trim() !== '' ? (
-        <Link href={(href && href) || ''}>
+        <Link href={(href && href) || ''} about={newTab ? '_blank' : undefined}>
           <Btn
             variant={type}
             disabled={disabled && disabled}
