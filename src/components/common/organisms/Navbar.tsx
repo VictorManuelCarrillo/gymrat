@@ -1,11 +1,10 @@
-// components/Navbar.tsx
-
-import { AppBar, Toolbar, Box, Switch, Menu, MenuItem, Button as MuiButton, IconButton } from '@mui/material';
-import { useState } from 'react';
-import { Text } from '../atoms/data-display/Text';
+import { AppBar, Toolbar, Box, Switch, Menu, MenuItem, IconButton, Drawer, List, ListItem, ListItemText, Collapse } from '@mui/material';
+import React, { useState } from 'react';
 import { Button } from '../atoms/input/Button';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'; // Importa el ícono para la flecha hacia abajo
-import ExpandLessIcon from '@mui/icons-material/ExpandLess'; // Importa el ícono para la flecha hacia arriba
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface SubMenuItem {
   text: string;
@@ -47,6 +46,8 @@ const links: NavLink[] = [
 export const Navbar = ({ darkMode, onThemeChange }: NavbarProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [currentLink, setCurrentLink] = useState<string | null>(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
 
   const handleMenuClick = (event: React.MouseEvent<HTMLElement>, linkText: string) => {
     setAnchorEl(event.currentTarget);
@@ -58,56 +59,118 @@ export const Navbar = ({ darkMode, onThemeChange }: NavbarProps) => {
     setCurrentLink(null);
   };
 
-  return (
-    <AppBar position='sticky'>
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Text type='h6'>GymRat</Text>
+  const toggleDrawer = () => {
+    setDrawerOpen(!drawerOpen);
+  };
 
-          <Box sx={{ display: 'flex', flexDirection: 'row', ml: 2 }}>
-            {links.map(link => (
-              link.subMenu ? (
-                <div key={link.text}>
-                  <IconButton
-                    onClick={(event) => handleMenuClick(event, link.text)}
-                    color='inherit'
-                    sx={{ display: 'flex', alignItems: 'center', mx: 1 }}
-                  >
-                    <Text>{link.text}</Text>
-                    {currentLink === link.text ? (
-                      <ExpandLessIcon sx={{ ml: 1 }} />
-                    ) : (
-                      <ExpandMoreIcon sx={{ ml: 1 }} />
-                    )}
-                  </IconButton>
-                  <Menu
-                    anchorEl={anchorEl}
-                    open={currentLink === link.text}
-                    onClose={handleMenuClose}
-                    keepMounted
-                  >
-                    {link.subMenu.map(subLink => (
-                      <MenuItem
-                        key={subLink.text}
-                        component='a'
-                        href={subLink.path}
-                        onClick={handleMenuClose}
-                      >
-                        {subLink.text}
-                      </MenuItem>
-                    ))}
-                  </Menu>
-                </div>
-              ) : (
-                <Button key={link.text} type='text' href={link.path} color='inherit'>
-                  {link.text}
-                </Button>
-              )
-            ))}
+  const handleSubMenuToggle = (linkText: string) => {
+    setOpenSubMenu(prev => (prev === linkText ? null : linkText));
+  };
+
+  return (
+    <>
+      <AppBar position='sticky'>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Button
+              type='text'
+              href='/'
+              color='inherit'>
+              GymRat
+            </Button>
+            <Box sx={{ flexDirection: 'row', ml: 2, display: { xs: 'none', sm: 'flex' } }}>
+              {links.map((link) =>
+                link.subMenu ? (
+                  <div key={link.text}>
+                    <Button
+                      type='text'
+                      href={link.path}
+                      endIcon={currentLink === link.text ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                      color='inherit'
+                      onClick={(event) => handleMenuClick(event, link.text)}>
+                      {link.text}
+                    </Button>
+                    <Menu
+                      sx={{ marginTop: '0.9em' }}
+                      anchorEl={anchorEl}
+                      open={currentLink === link.text}
+                      onClose={handleMenuClose}
+                      keepMounted>
+                      {link.subMenu.map((subLink) => (
+                        <MenuItem
+                          key={subLink.text}
+                          component='a'
+                          href={subLink.path}
+                          onClick={handleMenuClose}>
+                          {subLink.text}
+                        </MenuItem>
+                      ))}
+                    </Menu>
+                  </div>
+                ) : (
+                  <Button
+                    key={link.text}
+                    type='text'
+                    href={link.path}
+                    color='inherit'>
+                    {link.text}
+                  </Button>
+                )
+              )}
+            </Box>
+            <IconButton
+              sx={{ display: { xs: 'block', sm: 'none' } }}
+              color='inherit'
+              onClick={toggleDrawer}
+            >
+              <MenuIcon />
+            </IconButton>
           </Box>
+          <Switch
+            checked={darkMode}
+            onChange={onThemeChange}
+          />
+        </Toolbar>
+      </AppBar>
+
+      <Drawer anchor='left' open={drawerOpen} onClose={toggleDrawer}>
+        <Box sx={{ width: 250 }}>
+          <IconButton
+            sx={{ margin: 1 }}
+            color='inherit'
+            onClick={toggleDrawer}
+          >
+            <CloseIcon />
+          </IconButton>
+          <List>
+            {links.map((link) => (
+              <React.Fragment key={link.text}>
+                <ListItem button onClick={() => link.subMenu ? handleSubMenuToggle(link.text) : toggleDrawer}>
+                  <ListItemText primary={link.text} />
+                  {link.subMenu && (openSubMenu === link.text ? <ExpandLessIcon /> : <ExpandMoreIcon />)}
+                </ListItem>
+                {link.subMenu && (
+                  <Collapse in={openSubMenu === link.text} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                      {link.subMenu.map((subLink) => (
+                        <ListItem
+                          key={subLink.text}
+                          button
+                          component='a'
+                          href={subLink.path}
+                          onClick={toggleDrawer}
+                        >
+                          <ListItemText primary={subLink.text} sx={{ pl: 4 }} />
+                        </ListItem>
+                      ))}
+                    </List>
+                  </Collapse>
+                )}
+              </React.Fragment>
+            ))}
+          </List>
         </Box>
-        <Switch checked={darkMode} onChange={onThemeChange} />
-      </Toolbar>
-    </AppBar>
+      </Drawer>
+    </>
   );
 };
