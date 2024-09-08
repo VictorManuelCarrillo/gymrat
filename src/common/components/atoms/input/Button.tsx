@@ -7,22 +7,37 @@ import Link from 'next/link';
 interface ButtonProps {
   children: React.ReactNode;
   color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
+  className?: string; // Para clases adicionales
   disabled?: boolean;
   edge?: 'end' | 'start' | false;
   endIcon?: React.ReactNode;
   fullWidth?: boolean;
   href?: string;
-  onClick?: (event:any) => void;
+  onClick?: (event: any) => void;
   size?: 'small' | 'medium' | 'large';
   startIcon?: React.ReactNode;
   newTab?: boolean;
-  className?: string; // Para clases adicionales
+  style?: React.CSSProperties;
   type?: 'contained' | 'outlined' | 'text' | 'icon';
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
-  const { children, color, disabled, edge, endIcon, fullWidth, href, onClick, size, startIcon, newTab, className, type } =
-    props;
+  const {
+    children,
+    className,
+    color,
+    disabled,
+    edge,
+    endIcon,
+    fullWidth,
+    href,
+    onClick,
+    size,
+    startIcon,
+    newTab,
+    style,
+    type,
+  } = props;
 
   // const buttonClassName = classNames({
   //   [styles.contained]: type === 'contained',
@@ -37,9 +52,11 @@ export const Button: React.FC<ButtonProps> = (props) => {
       <Link
         href={href}
         about={newTab ? '_blank' : undefined}
-        rel={newTab ? 'noopener noreferrer' : undefined} passHref>
+        rel={newTab ? 'noopener noreferrer' : undefined}
+        passHref>
         <IconButton
           color={color}
+          sx={style}
           disabled={disabled}
           edge={edge} // Puedes ajustar este prop según lo necesites
           size={size}
@@ -51,6 +68,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     ) : (
       <IconButton
         color={color}
+        sx={style}
         disabled={disabled}
         edge={edge} // Puedes ajustar este prop según lo necesites
         size={size}
@@ -65,9 +83,11 @@ export const Button: React.FC<ButtonProps> = (props) => {
     <Link
       href={href}
       about={newTab ? '_blank' : undefined}
-      rel={newTab ? 'noopener noreferrer' : undefined} passHref>
+      rel={newTab ? 'noopener noreferrer' : undefined}
+      passHref>
       <MuiButton
         color={color}
+        sx={style}
         disabled={disabled}
         endIcon={endIcon}
         fullWidth={fullWidth}
@@ -82,6 +102,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
   ) : (
     <MuiButton
       color={color}
+      sx={style}
       disabled={disabled}
       endIcon={endIcon}
       fullWidth={fullWidth}

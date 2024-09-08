@@ -1,5 +1,5 @@
-import { Button } from "~/components/common/atoms/input/Button";
-import {PrimaryLayout} from "~/components/common/templates/layout";
+import { Button } from "~/common/components/atoms/input/Button";
+import { PrimaryLayout } from "~/common/components/templates/layout";
 export default function HomePage() {
   return (
     <PrimaryLayout>
