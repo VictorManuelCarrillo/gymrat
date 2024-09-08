@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { AppBar, Toolbar, Box, Switch, Menu, MenuItem, IconButton, Drawer, List, ListItem, ListItemText, Collapse } from '@mui/material';
@@ -141,7 +142,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onThemeChange }) => {
           {/* Logo & Nav Title */}
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             {/* Logo */}
-            <Image src='/assets/logo/logo1.png' alt='GymRat Logo' width={40} height={40}/>
+            <Image src='/assets/logo/logo1.png' alt='GymRat Logo' width={40} height={40} />
             {/* Nav Title */}
             <Text type='h6' style={{ fontWeight: 'bold', marginLeft: '1em' }}>
               GymRat
@@ -155,10 +156,18 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onThemeChange }) => {
               flexDirection: 'row',
               justifyContent: 'center',
               '& > *': {
-                mx: '1em',
+                mx: '0.5em',
               },
             }}
           >
+            {/* Mobile Menu Icon */}
+            <IconButton
+              sx={{ display: { xs: 'flex', sm: 'none' } }}
+              color='inherit'
+              onClick={toggleDrawer}
+            >
+              <MenuIcon />
+            </IconButton>
             {renderDesktopMenu()}
             {/* Switch with icons */}
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
