@@ -1,8 +1,8 @@
 import { Button as MuiButton, IconButton } from '@mui/material';
 import React from 'react';
 import Link from 'next/link';
-// import classNames from 'classnames';
-// import styles from './Button.module.css'; // Asegúrate de tener este archivo para los estilos
+import classNames from 'classnames';
+import s from './Button.module.scss'
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -39,13 +39,14 @@ export const Button: React.FC<ButtonProps> = (props) => {
     type,
   } = props;
 
-  // const buttonClassName = classNames({
-  //   [styles.contained]: type === 'contained',
-  //   [styles.outlined]: type === 'outlined',
-  //   [styles.text]: type === 'text',
-  //   [styles.icon]: type === 'icon',
-  //   [className || '']: className
-  // });
+  const buttonClassName = classNames(
+    s.button, // Aplica la clase general
+    {
+      [s['button__outlined']]: type === 'outlined',
+      [s['button__icon']]: type === 'icon',
+    },
+    className // Clases adicionales pasadas como prop
+  );
 
   if (type === 'icon') {
     return href ? (
@@ -53,14 +54,14 @@ export const Button: React.FC<ButtonProps> = (props) => {
         href={href}
         about={newTab ? '_blank' : undefined}
         rel={newTab ? 'noopener noreferrer' : undefined}
-        passHref>
+>
         <IconButton
           color={color}
           sx={style}
           disabled={disabled}
           edge={edge} // Puedes ajustar este prop según lo necesites
           size={size}
-          // className={buttonClassName}
+          className={buttonClassName}
           onClick={onClick}>
           {children}
         </IconButton>
@@ -72,7 +73,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
         disabled={disabled}
         edge={edge} // Puedes ajustar este prop según lo necesites
         size={size}
-        // className={buttonClassName}
+        className={buttonClassName}
         onClick={onClick}>
         {children}
       </IconButton>
@@ -81,10 +82,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
   return href ? (
     <Link
-      href={href}
-      about={newTab ? '_blank' : undefined}
-      rel={newTab ? 'noopener noreferrer' : undefined}
-      passHref>
+      href={href} passHref>
       <MuiButton
         color={color}
         sx={style}
@@ -94,7 +92,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
         onClick={onClick}
         size={size}
         startIcon={startIcon}
-        // className={buttonClassName}
+        className={buttonClassName}
         variant={type}>
         {children}
       </MuiButton>
@@ -109,7 +107,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
       onClick={onClick}
       size={size}
       startIcon={startIcon}
-      // className={buttonClassName}
+      className={buttonClassName}
       variant={type}>
       {children}
     </MuiButton>

@@ -1,7 +1,21 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { AppBar, Toolbar, Box, Switch, Menu, MenuItem, IconButton, Drawer, List, ListItem, ListItemText, Collapse } from '@mui/material';
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  Switch,
+  Menu,
+  MenuItem,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Collapse,
+} from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -112,16 +126,20 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onThemeChange }) => {
         <List>
           {links.map((link) => (
             <React.Fragment key={link.text}>
-              <ListItem button onClick={() => (link.subMenu ? handleSubMenuToggle(link.text) : toggleDrawer())}>
-                <ListItemText primary={link.text} />
-                {link.subMenu && (openSubMenu === link.text ? <ExpandLessIcon /> : <ExpandMoreIcon />)}
+              <ListItem disablePadding>
+                <ListItemButton onClick={() => (link.subMenu ? handleSubMenuToggle(link.text) : toggleDrawer())}>
+                  <ListItemText primary={link.text} />
+                  {link.subMenu && (openSubMenu === link.text ? <ExpandLessIcon /> : <ExpandMoreIcon />)}
+                </ListItemButton>
               </ListItem>
               {link.subMenu && (
                 <Collapse in={openSubMenu === link.text} timeout='auto' unmountOnExit>
                   <List component='div' disablePadding>
                     {link.subMenu.map((subLink) => (
-                      <ListItem key={subLink.text} button component='a' href={subLink.path} onClick={toggleDrawer}>
-                        <ListItemText primary={subLink.text} sx={{ pl: 4 }} />
+                      <ListItem key={subLink.text} disablePadding>
+                        <ListItemButton component='a' href={subLink.path} onClick={toggleDrawer}>
+                          <ListItemText primary={subLink.text} sx={{ pl: 4 }} />
+                        </ListItemButton>
                       </ListItem>
                     ))}
                   </List>
@@ -135,20 +153,16 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onThemeChange }) => {
   );
 
   return (
-    /* Desktop AppBar ----------------------------------------------------------------------------->> */
     <>
       <AppBar position='sticky'>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          {/* Logo & Nav Title */}
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            {/* Logo */}
             <Image src='/assets/logo/logo1.png' alt='GymRat Logo' width={40} height={40} />
-            {/* Nav Title */}
             <Text type='h6' style={{ fontWeight: 'bold', marginLeft: '1em' }}>
               GymRat
             </Text>
+            {renderDesktopMenu()}
           </Box>
-          {/* Menu Section */}
           <Box
             sx={{
               alignItems: 'center',
@@ -160,29 +174,21 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onThemeChange }) => {
               },
             }}
           >
-            {/* Mobile Menu Icon */}
-            <IconButton
-              sx={{ display: { xs: 'flex', sm: 'none' } }}
-              color='inherit'
-              onClick={toggleDrawer}
-            >
+            <IconButton sx={{ display: { xs: 'flex', sm: 'none' } }} color='inherit' onClick={toggleDrawer}>
               <MenuIcon />
             </IconButton>
-            {renderDesktopMenu()}
-            {/* Switch with icons */}
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
               <Switch checked={darkMode} onChange={onThemeChange} sx={{ ml: 1 }} />
             </Box>
-            <Box>
+            <Box sx={{ display: 'block' }}>
               <Button type='contained' color='secondary'>
-                iniciar sesion
+                Iniciar sesión
               </Button>
             </Box>
           </Box>
         </Toolbar>
       </AppBar>
-      {/* Mobile Menu ----------------------------------------------------------------------------->> */}
       {renderMobileMenu()}
     </>
   );

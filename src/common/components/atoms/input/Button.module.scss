@@ -1,0 +1,15 @@
+.button {
+  padding: 0.2em 0.8em;
+  margin: 0.2em;
+  &__outlined {
+    font-weight: bold;
+    border: 0.25em solid;
+    padding: 0.05em;
+    &:hover {
+      border: 0.25em solid;
+    }
+  }
+  &__icon {
+    padding: 0.2em;
+  }
+}
