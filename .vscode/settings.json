@@ -3,7 +3,9 @@
     "bumpp",
     "cloudinary",
     "commitlint",
-    "gymrat"
+    "gymrat",
+    "swiper",
+    "Swiper"
   ],
   "conventionalCommits.scopes": [
     "button"

@@ -1,0 +1,26 @@
+.slider {
+  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(10,26,41,1) 100%);
+  :global(.swiper-pagination-bullet) {
+    background: white;
+    border-radius: 0.1em;
+    height: 0.6rem;
+    opacity: 0.3;
+    width: 1.5rem;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    background-color: white;
+    opacity: 1;
+    width: 4rem;
+    height: 0.8rem;
+  }
+
+  :global(.swiper-button-prev) {
+    background-color: red;
+    color: white;
+  }
+  :global(.swiper-button-next) {
+    background-color: red;
+    color: white;
+  }
+}
