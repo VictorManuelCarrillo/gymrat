@@ -36,7 +36,7 @@ export const Carousel: React.FC<CarouselProps> = (props) => {
     >
       {images.map((image, index) => (
         <SwiperSlide key={index}>
-          <Box sx={{ width: '100%', height: height, position: 'relative', marginBottom: '2.8em' }}>
+          <Box sx={{ width: '100%', height: height, position: 'relative', marginBottom: '2.4em' }}>
             <Image
               src={image.src}
               alt={image.alt}
@@ -44,6 +44,7 @@ export const Carousel: React.FC<CarouselProps> = (props) => {
               style={{
                 objectFit: 'contain',
               }}
+              priority={false}
             />
           </Box>
         </SwiperSlide>
