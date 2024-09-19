@@ -1,0 +1,43 @@
+// variables
+$arrowsPadding: 2em 1em;
+$arrowsBackgroundColor: #00000000;
+$arrowsColor: white;
+$border: 0.1em;
+$paginationBackgroundColor: white;
+$paginationBulletWidth: 2em;
+$paginationBulletHeight: 0.4em;
+$paginationOpacity: 1;
+
+.slider {
+  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(10,26,41,1) 100%);
+
+  //pagination bullets
+  :global(.swiper-pagination-bullet) {
+    background-color: $paginationBackgroundColor;
+    border-radius: $border;
+    height: $paginationBulletHeight;
+    width: $paginationBulletWidth;
+    transition: ease-in-out 0.8s;
+    opacity: calc($paginationOpacity * 0.2);
+  }
+  :global(.swiper-pagination-bullet-active) {
+    background-color: $paginationBackgroundColor;
+    height: calc($paginationBulletHeight * 1.5);
+    width: calc($paginationBulletWidth * 2);
+    opacity: $paginationOpacity;
+  }
+
+  //arrows
+  :global(.swiper-button-prev) {
+    background-color: $arrowsBackgroundColor;
+    border-radius: $border;
+    color: $arrowsColor;
+    padding: $arrowsPadding
+  }
+  :global(.swiper-button-next) {
+    background-color: $arrowsBackgroundColor;
+    border-radius: $border;
+    color: $arrowsColor;
+    padding: $arrowsPadding
+  }
+}

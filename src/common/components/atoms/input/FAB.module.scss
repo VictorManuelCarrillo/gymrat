@@ -1,0 +1,9 @@
+.fab {
+  &-floating {
+    // TODO - arreglar la posición responsiva
+    bottom: calc(0vh + 2em);
+    position: fixed;
+    right: calc(0vw + 3em);
+    z-index: 100;
+  }
+}

@@ -4,7 +4,10 @@
     "bumpp",
     "cloudinary",
     "commitlint",
-    "gymrat"
+    "gymrat",
+    "nextjs",
+    "swiper",
+    "Swiper"
   ],
   "conventionalCommits.scopes": [
     "button"

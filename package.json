@@ -10,7 +10,9 @@
     "lint": "next lint",
     "prepare": "husky install",
     "release": "bumpp --commit --push --tag",
-    "changelog": "conventional-changelog -p angular -c ./changelog-config.js -i CHANGELOG.md -s -r 0"
+    "changelog": "conventional-changelog -p angular -c ./changelog-config.js -i CHANGELOG.md -s -r 0",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -24,19 +26,31 @@
     "next": "14.2.6",
     "pnpm": "^9.9.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "swiper": "^11.1.12"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^1.9.0",
     "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@storybook/addon-essentials": "^8.2.9",
+    "@storybook/addon-interactions": "^8.2.9",
+    "@storybook/addon-links": "^8.2.9",
+    "@storybook/addon-onboarding": "^8.2.9",
+    "@storybook/blocks": "^8.2.9",
+    "@storybook/nextjs": "^8.2.9",
+    "@storybook/react": "^8.2.9",
+    "@storybook/test": "^8.2.9",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "bumpp": "^9.5.2",
     "eslint": "^8",
     "eslint-config-next": "14.2.6",
+    "eslint-plugin-storybook": "^0.8.0",
     "husky": "^8.0.0",
     "sass": "^1.77.8",
+    "storybook": "^8.2.9",
     "typescript": "^5"
   }
 }
