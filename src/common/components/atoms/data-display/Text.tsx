@@ -15,6 +15,7 @@ interface TextProps {
     | 'textSecondary'
     | 'textDisabled';
   component?: React.ElementType;
+  className?: string;
   style?: React.CSSProperties;
   type?:
     | 'h1'
@@ -33,14 +34,15 @@ interface TextProps {
 }
 
 export const Text: React.FC<TextProps> = (props) => {
-  const { align, children, color, component = 'p', style, type = 'body1' } = props;
+  const { align, children, color, component = 'p', style, type = 'body1', className } = props;
   return (
     <Typography
       align={align}
       variant={type}
       color={color}
       component={component}
-      sx={style}>
+      sx={style}
+      className={className}>
       {children}
     </Typography>
   );
