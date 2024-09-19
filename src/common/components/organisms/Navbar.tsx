@@ -24,6 +24,7 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { Button } from '../atoms/input/Button';
 import { Text } from '../atoms/data-display/Text';
+import { Avatar } from '../atoms/input/Avatar';
 
 interface SubMenuItem {
   text: string;
@@ -186,6 +187,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onThemeChange }) => {
                 Iniciar sesión
               </Button>
             </Box>
+            <Avatar alt='Vic Man' src='./assets/logo/logo1.png' />
           </Box>
         </Toolbar>
       </AppBar>

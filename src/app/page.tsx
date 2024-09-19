@@ -3,6 +3,7 @@ import { Button } from '~/common/components/atoms/input/Button';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import { Carousel } from '~/common/components/organisms/Slider';
 import { Img } from '~/common/components/atoms/data-display/Image';
+import { FAB } from '~/common/components/atoms/input/FAB';
 
 const imageList = [
   { src: '/assets/logo/logo1.png', alt: 'Logo 1', width: 500, height: 500 },
@@ -27,6 +28,9 @@ export default function HomePage() {
         width={'500px'}
         priority={true}
       />
+      <FAB type='circular' href='/' newTab>
+        <LightModeIcon/>
+      </FAB>
     </PrimaryLayout>
   );
 }
