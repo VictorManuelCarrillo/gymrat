@@ -9,7 +9,7 @@ export const PrimaryLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Navbar darkMode={darkMode} onThemeChange={handleThemeChange} />
+      {/* <Navbar darkMode={darkMode} onThemeChange={handleThemeChange} /> */}
       {children}
     </ThemeProvider>
   );
