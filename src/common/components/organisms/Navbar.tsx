@@ -100,7 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onThemeChange }) => {
             >
               {link.text}
             </Button>
-            <Menu sx={{ marginTop: '0.9em' }} anchorEl={anchorEl} open={currentLink === link.text} onClose={handleMenuClose} keepMounted>
+            <Menu sx={{ marginTop: '1.05em' }} anchorEl={anchorEl} open={currentLink === link.text} onClose={handleMenuClose} keepMounted>
               {link.subMenu.map((subLink) => (
                 <MenuItem key={subLink.text} component='a' href={subLink.path} onClick={handleMenuClose}>
                   {subLink.text}
