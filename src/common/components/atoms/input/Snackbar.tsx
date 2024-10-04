@@ -1,42 +1,39 @@
-import { Snackbar,SnackbarCloseReason } from '@mui/material';
+import { Snackbar as MuiSnackbar } from "@mui/material";
+import { Button } from "./Button";
 import React from "react";
 
-
 interface SnackbarProps {
-message?:string;
-autoHideDuration?:number;
-actionLabel?:string;
-
+  message?: string;
+  actionLabel?: string;
 }
 
-export const MaySnackbar: React.FC<SnackbarProps> = (props) => {
-  const {message,autoHideDuration,actionLabel="cerrar"}=props;
+export const Snackbar: React.FC<SnackbarProps> = (props) => {
+  const { message, actionLabel = "cerrar" } = props;
 
-const [open, setOpen] = React.useState (false);
+  const [open, setOpen] = React.useState(false);
 
-
-const handleClick = () => {
+  const handleClick = () => {
     setOpen(!open);
-    };
+  };
 
-  
-    const handleClose = (event: React.SyntheticEvent | Event, reason?: SnackbarCloseReason) => {
-      reason !== "clickaway" ;{
-        return;
-      }
-      setOpen(false);
-    };
+  const action = (
+    <>
+      <Button type="contained" size="small" onClick={handleClick}>
+        cerrar
+      </Button>
+    </>
+  );
 
   return (
-    <div>
-      <button onClick={handleClick}>Mostrar Snackbar</button> 
-      <Snackbar
-        open={open}  
-        autoHideDuration={autoHideDuration}  
-        onClose={handleClose}  
+    <>
+      <Button onClick={handleClick}>Open Snackbar</Button>
+      <MuiSnackbar
+        action={action}
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClick}
         message={message}
       />
-    </div>
+    </>
   );
-}
- 
+};

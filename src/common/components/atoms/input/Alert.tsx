@@ -1,27 +1,34 @@
-import React from "react";
-import Alert from '@mui/material/Alert';
+import { Alert as MuiAlert } from "@mui/material";
+import React from "react"
+import { Button } from "./Button";
 
 interface AlertProps {
-  action?: React.ReactNode;  
-  closeText?: string;        
-  color?: "error" | "info" | "success" | "warning" ; 
-  severity?: "error" | "info" | "success" | "warning" ; 
-  variant?: "filled" | "outlined" | "standard";  
+  children: React.ReactNode;
+  severity?: "error" | "info" | "success" | "warning";
+  variant?: "filled" | "outlined" | "standard";
+  color?: "error" | "info" | "success" | "warning";
 }
 
+export const Alert: React.FC<AlertProps> = (props) => {
+  const { children, severity, variant, color } = props;
+  const [open, setOpen] = React.useState(false);
 
-export const MayAlert: React.FC<AlertProps> = (props) => {
-  const { 
-    action, 
-    closeText , 
-    color , 
-    severity ,  
-    variant  
-  } = props;
+  const handleClick = () => {
+    setOpen(!open);
+  };
 
-  return (
-    <div>
-    <Alert  action={action} closeText={closeText} color={color} severity={severity} variant={variant} ></Alert>
-    </div>
+  const action = (
+    <>
+      <Button type="contained" size="small" onClick={handleClick}>
+        cerrar
+      </Button>
+    </>
   );
-      }
+  return (
+    <>
+      <MuiAlert  action={action} severity={severity} variant={variant} color={color} onClick={handleClick}>
+        {children}
+      </MuiAlert>
+    </>
+  );
+};
