@@ -2,7 +2,7 @@ import { Button as MuiButton, IconButton } from '@mui/material';
 import React from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
-import s from './Button.module.scss'
+import s from './Button.module.scss';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -22,22 +22,7 @@ interface ButtonProps {
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
-  const {
-    children,
-    className,
-    color,
-    disabled,
-    edge,
-    endIcon,
-    fullWidth,
-    href,
-    onClick,
-    size,
-    startIcon,
-    newTab,
-    style,
-    type,
-  } = props;
+  const { children, className, color, disabled, edge, endIcon, fullWidth, href, onClick, size, startIcon, newTab, style, type } = props;
 
   const buttonClassName = classNames(
     s.button, // Aplica la clase general
@@ -50,11 +35,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
   if (type === 'icon') {
     return href ? (
-      <Link
-        href={href}
-        about={newTab ? '_blank' : undefined}
-        rel={newTab ? 'noopener noreferrer' : undefined}
->
+      <Link href={href} about={newTab ? '_blank' : undefined} rel={newTab ? 'noopener noreferrer' : undefined}>
         <IconButton
           color={color}
           sx={style}
@@ -62,7 +43,8 @@ export const Button: React.FC<ButtonProps> = (props) => {
           edge={edge} // Puedes ajustar este prop según lo necesites
           size={size}
           className={buttonClassName}
-          onClick={onClick}>
+          onClick={onClick}
+        >
           {children}
         </IconButton>
       </Link>
@@ -74,15 +56,15 @@ export const Button: React.FC<ButtonProps> = (props) => {
         edge={edge} // Puedes ajustar este prop según lo necesites
         size={size}
         className={buttonClassName}
-        onClick={onClick}>
+        onClick={onClick}
+      >
         {children}
       </IconButton>
     );
   }
 
   return href ? (
-    <Link
-      href={href} passHref>
+    <Link href={href} passHref>
       <MuiButton
         color={color}
         sx={style}
@@ -93,7 +75,8 @@ export const Button: React.FC<ButtonProps> = (props) => {
         size={size}
         startIcon={startIcon}
         className={buttonClassName}
-        variant={type}>
+        variant={type}
+      >
         {children}
       </MuiButton>
     </Link>
@@ -108,7 +91,8 @@ export const Button: React.FC<ButtonProps> = (props) => {
       size={size}
       startIcon={startIcon}
       className={buttonClassName}
-      variant={type}>
+      variant={type}
+    >
       {children}
     </MuiButton>
   );

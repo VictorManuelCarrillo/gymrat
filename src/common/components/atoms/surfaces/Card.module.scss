@@ -1,0 +1,132 @@
+@use '/src/styles/base/variables.scss' as *;
+//> local variables ---------------------------->
+$margin: 0.5em;
+$marginText: 0 0 1.5em 0;
+//> width/margin function for cards ------------>
+@function size($width) {
+  @return calc($width - ($margin * 2));
+}
+//> lines view for text content ---------------->
+@mixin line-view($lines) {
+  display: -webkit-box;
+  line-clamp: $lines;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: $margin;
+  //> card-header ------------------------------>
+  .header {
+    &__title {
+      font-weight: bolder;
+      text-transform: uppercase;
+      @include line-view(3);
+    }
+    &__subtitle {
+      font-weight: bold;
+      @include line-view(2);
+    }
+    &__action {
+      font-size: 2em;
+    }
+  }
+  //> card-media ------------------------------->
+  .media {
+    height: 15em;
+  }
+  //> card-content ----------------------------->
+  .content {
+    &__title {
+      font-weight: bolder;
+      text-transform: uppercase;
+      @include line-view(3);
+    }
+    &__subtitle {
+      font-weight: bold;
+      margin: $marginText;
+      @include line-view(2);
+    }
+    &__description {
+      @include line-view(4);
+    }
+  }
+  //> card-actions ----------------------------->
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  //> BEM Modifier ----------------------------->
+  &-text {
+    @media screen and (min-width: $breakpoint-xs) {
+      width: size(100%);
+    }
+    @media screen and (min-width: $breakpoint-sm) {
+      width: size(50%);
+    }
+    @media screen and (min-width: $breakpoint-md) {
+      width: size(30%);
+    }
+    @media screen and (min-width: $breakpoint-lg) {
+      width: size(25%);
+    }
+    @media screen and (min-width: $breakpoint-xl) {
+      width: size(20%);
+    }
+  }
+  &-media {
+    @media screen and (min-width: $breakpoint-xs) {
+      width: size(100%);
+    }
+    @media screen and (min-width: $breakpoint-sm) {
+      width: size(100%);
+    }
+    @media screen and (min-width: $breakpoint-md) {
+      width: size(100%);
+    }
+    @media screen and (min-width: $breakpoint-lg) {
+      width: size(50%);
+    }
+    @media screen and (min-width: $breakpoint-xl) {
+      width: size(30%);
+    }
+  }
+  &-complex {
+    @media screen and (min-width: $breakpoint-xs) {
+      width: size(100%);
+    }
+    @media screen and (min-width: $breakpoint-sm) {
+      width: size(100%);
+    }
+    @media screen and (min-width: $breakpoint-md) {
+      width: size(50%);
+    }
+    @media screen and (min-width: $breakpoint-lg) {
+      width: size(30%);
+    }
+    @media screen and (min-width: $breakpoint-xl) {
+      width: size(25%);
+    }
+  }
+  &-primary_action {
+    @media screen and (min-width: $breakpoint-xs) {
+      width: size(100%);
+    }
+    @media screen and (min-width: $breakpoint-sm) {
+      width: size(50%);
+    }
+    @media screen and (min-width: $breakpoint-md) {
+      width: size(30%);
+    }
+    @media screen and (min-width: $breakpoint-lg) {
+      width: size(25%);
+    }
+    @media screen and (min-width: $breakpoint-xl) {
+      width: size(20%);
+    }
+  }
+}
