@@ -1,30 +1,18 @@
-import { PrimaryLayout } from "~/common/components/templates/layout";
-import { Button } from "~/common/components/atoms/input/Button";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import { Card } from "~/common/components/atoms/surfaces/Card";
-import Autocomplete from "~/common/components/atoms/surfaces/atocompletar";
-
-
+import { PrimaryLayout } from '~/common/components/templates/layout';
+import { Button } from '~/common/components/atoms/input/Button';
+import LightModeIcon from '@mui/icons-material/LightMode';
 
 
 export default function HomePage() {
+  const handleClose = (event: React.SyntheticEvent) => {
+    console.log("Alerta cerrada");
+  };
   return (
     <PrimaryLayout>
-      <Button type="contained">ola</Button>
-      <Button type="outlined">ola</Button>
-      <Button type="text">ola</Button>
-      <Button type="icon">
-        <LightModeIcon />
-      </Button>
- <Card
- type="complex"
- title="protein"
- subtitle="proteina de chocolate "
- image="assets/images/protein/protein.png"
- description=" esta proteina te ara ponerte mamadisimo !"
-
-/>
-    <Autocomplete/>
+      <Button type='contained'>ola</Button>
+      <Button type='outlined'>ola</Button>
+      <Button type='text'>ola</Button>
+      <Button type='icon'><LightModeIcon/></Button>
     </PrimaryLayout>
   );
 }
