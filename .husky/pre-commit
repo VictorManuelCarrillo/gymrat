@@ -1,0 +1,4 @@
+pnpm run lint
+pnpm run eslint:format
+pnpm run prettier:format
+pnpm run prettier:check
