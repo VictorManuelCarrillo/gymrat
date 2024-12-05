@@ -9,7 +9,7 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   //! for material ui TODO
-  // important: '#root',
+  important: true,
   theme: {
     extend: {},
   },
