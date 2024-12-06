@@ -1,8 +1,9 @@
-import { Button } from '@mui/material';
+import { Button } from '~/common/components/atoms/Button';
 export default function Home() {
   return (
     <div>
-      <Button className="bg-slate-500 text-green-400">ola</Button>
+      <Button className="h-10 w-1/6 bg-slate-500 text-green-400">ola</Button>
+      ola
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { GlobalCssPriority } from '~/common/components/templates/material/MaterialCacheLayout';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import './globals.css';
+import '~/styles/globals.scss';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',

@@ -1,0 +1,6 @@
+@use './variables' as *;
+
+.btn {
+  @apply bg-orange-700;
+  color: $ola;
+}

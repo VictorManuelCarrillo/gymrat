@@ -12,6 +12,5 @@
   "endOfLine": "auto",
   "htmlWhitespaceSensitivity": "ignore",
   "jsxSingleQuote": false,
-  "jsxBracketSameLine": false,
   "quoteProps": "as-needed"
 }
