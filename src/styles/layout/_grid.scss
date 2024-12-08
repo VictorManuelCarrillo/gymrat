@@ -1,0 +1,16 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-unit;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -$spacing-unit / 2;
+}
+
+.col {
+  padding: $spacing-unit / 2;
+  flex: 1 1 0;
+}

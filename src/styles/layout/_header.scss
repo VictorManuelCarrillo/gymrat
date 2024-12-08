@@ -1,0 +1,10 @@
+header {
+  background-color: $primary-color;
+  color: #fff;
+  padding: $spacing-unit;
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
