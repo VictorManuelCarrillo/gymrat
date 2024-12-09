@@ -1,8 +1,8 @@
-import { Button } from '~/common/components/atoms/Button';
+import { Button } from '~/common/components/atoms/inputs/Button';
 export default function Home() {
   return (
-    <div>
-      <Button />
+    <div className="bg">
+      <Button>ola</Button>
       ola
     </div>
   );

@@ -4,14 +4,19 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import '~/styles/main.scss';
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
+const antonSC = localFont({
+  src: './fonts/AntonSC-R.ttf',
+  variable: '--font-anton',
   weight: '100 900',
 });
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
+const exo2 = localFont({
+  src: './fonts/Exo2-VF.ttf',
+  variable: '--font-exo2',
+  weight: '100 900',
+});
+const rubik = localFont({
+  src: './fonts/Rubik-VF.ttf',
+  variable: '--font-rubik',
   weight: '100 900',
 });
 
@@ -27,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${antonSC.variable} ${exo2.variable} ${rubik.variable}`}>
         {/* //? for material ui */}
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <GlobalCssPriority>{children}</GlobalCssPriority>

@@ -1,0 +1,9 @@
+.btn {
+  border-radius: 1em;
+  padding: 0.3em 1.5em;
+  &__outlined {
+    border: 0.3em solid;
+    // set padding
+    padding: calc(0.2em - 0.15em) calc(1.5em - 0.15em);
+  }
+}

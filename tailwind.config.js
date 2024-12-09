@@ -11,7 +11,13 @@ module.exports = {
   //! for material ui
   important: true,
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        anton: ['var(--font-anton)', 'sans-serif'],
+        exo2: ['var(--font-exo2)', 'sans-serif'],
+        rubik: ['var(--font-rubik)', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
   //? for material ui
