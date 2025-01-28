@@ -1,8 +1,8 @@
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import { GlobalCssPriority } from '~/common/components/templates/material/MaterialCacheLayout';
+import { GlobalCssPriority } from '~/shared/components/templates/material/MaterialCacheLayout';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import '~/styles/main.scss';
+import '~/shared/styles/main.scss';
 
 const antonSC = localFont({
   src: './fonts/AntonSC-R.ttf',
@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${antonSC.variable} ${exo2.variable} ${rubik.variable}`}>
+      <body className={`${antonSC.variable} ${exo2.variable} ${rubik.variable} antialiased`}>
         {/* //? for material ui */}
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <GlobalCssPriority>{children}</GlobalCssPriority>

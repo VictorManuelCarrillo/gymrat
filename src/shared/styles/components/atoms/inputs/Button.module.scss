@@ -1,0 +1,13 @@
+// src/styles/components/atoms/inputs/Button.module.scss
+.btn {
+  border-radius: 1em;
+  padding: 0.3em 1.5em;
+
+  &__outlined {
+    border: 0.3em solid;
+    padding: calc(0.2em - 0.15em) calc(1.5em - 0.15em);
+    &:hover {
+      @apply border-secondary bg-secondary text-white;
+    }
+  }
+}
