@@ -1,5 +1,6 @@
 import { Button } from '@mui/material';
 import { ButtonGroup } from '~/components/atoms/inputs/ButtonGroup';
+import { Checkbox } from '~/components/atoms/inputs/Checkbox';
 
 export default function TestPage() {
   return (
@@ -10,6 +11,7 @@ export default function TestPage() {
         <Button>ola</Button>
         <Button>ola</Button>
       </ButtonGroup>
+      <Checkbox defaultChecked />
     </div>
   );
 }
