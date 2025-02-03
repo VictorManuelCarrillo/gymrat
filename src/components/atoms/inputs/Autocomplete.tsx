@@ -8,6 +8,7 @@ interface AutocompleteProps {
   autoHighLight?: boolean;
   autoSelect?: boolean;
   blurOnSelect?: 'mouse' | 'touch' | boolean;
+  className?: string;
   clearIcon?: React.ReactNode;
   clearOnBlur?: boolean;
   clearOnEscape?: boolean;

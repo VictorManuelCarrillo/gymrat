@@ -10,7 +10,12 @@ interface BaseButtonProps {
   color?: 'inherit' | 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning';
   className?: string;
   disabled?: boolean;
+  disabledElevation?: boolean;
+  disableFocusRipple?: boolean;
   href?: string;
+  loading?: boolean;
+  loadingIndicator?: React.ReactNode;
+  loadingPosition?: 'center' | 'end' | 'start';
   newTab?: boolean;
   size?: 'small' | 'medium' | 'large';
   sx?: React.CSSProperties;
