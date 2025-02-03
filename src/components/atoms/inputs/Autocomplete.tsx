@@ -1,0 +1,64 @@
+import { AutocompleteRenderGroupParams, Autocomplete as MuiAutocomplete } from '@mui/material';
+import React from 'react';
+
+interface AutocompleteProps {
+  options: unknown[];
+  renderInput: (params: object) => React.ReactNode;
+  autoComplete?: boolean;
+  autoHighLight?: boolean;
+  autoSelect?: boolean;
+  blurOnSelect?: 'mouse' | 'touch' | boolean;
+  clearIcon?: React.ReactNode;
+  clearOnBlur?: boolean;
+  clearOnEscape?: boolean;
+  clearText?: string;
+  closeText?: string;
+  defaultValue?: unknown;
+  disableClearable?: boolean;
+  disableCloseOnSelect?: boolean;
+  disabled?: boolean;
+  disabledItemsFocusable?: boolean;
+  disableListWrap?: boolean;
+  disablePortal?: boolean;
+  filterOptions?: (options: unknown[], state: object) => unknown[];
+  filterSelectedOptions?: boolean;
+  forcePopupIcon?: 'auto' | boolean;
+  freeSolo?: boolean;
+  fullWidth?: boolean;
+  getLimitTagsText?: (more: number) => React.ReactNode;
+  getOptionDisabled?: (option: unknown) => boolean;
+  getOptionKey?: (option: unknown) => string | number;
+  getOptionLabel?: (option: unknown) => string;
+  groupBy?: (option: unknown) => string;
+  handleHomeEndKeys?: boolean;
+  id?: string;
+  includeInputInList?: boolean;
+  inputValue?: string;
+  limitTags?: number;
+  loading?: boolean;
+  loadingText?: React.ReactNode;
+  multiple?: boolean;
+  noOptionsText?: React.ReactNode;
+  onChange?: () => void;
+  onClose?: () => void;
+  onHighlightChange?: () => void;
+  onInputChange?: () => void;
+  onOpen?: () => void;
+  open?: boolean;
+  openOnFocus?: boolean;
+  openText?: string;
+  popupIcon?: React.ReactNode;
+  readOnly?: boolean;
+  renderGroup?: (params: AutocompleteRenderGroupParams) => React.ReactNode;
+  renderOption?: (props: object, option: unknown, state: object, ownerState: object) => React.ReactNode;
+  renderTags?: (value: unknown[], getTagProps: unknown, ownerState: object) => React.ReactNode;
+  selectOnFocus?: boolean;
+  size?: 'small' | 'medium';
+  sx?: React.CSSProperties;
+  value?: unknown;
+}
+
+export const Autocomplete: React.FC<AutocompleteProps> = (props) => {
+  const { ...rest } = props;
+  return <MuiAutocomplete {...rest} />;
+};

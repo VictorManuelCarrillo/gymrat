@@ -1,6 +1,9 @@
-import { render } from '@testing-library/react';
-import Home from '~/app/page';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import HomePage from '~/app/page';
+
 it('renders home page', () => {
-  const home = render(<Home />);
-  expect(home).toMatchSnapshot();
+  render(<HomePage />);
+  // Ask text or part of them
+  expect(screen.getByText('hola mundo')).toBeInTheDocument();
 });

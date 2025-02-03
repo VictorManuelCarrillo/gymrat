@@ -1,6 +1,6 @@
-import { Button } from '~/shared/components/atoms/inputs/Button';
-import { PrimaryLayout as Layout } from '~/shared/components/templates/layouts/PrimaryLayout';
-export default function Home() {
+import { Button } from '~/components/atoms/inputs/Button';
+import { PrimaryLayout as Layout } from '~/components/templates/layouts/PrimaryLayout';
+export default function HomePage() {
   return (
     <Layout>
       {/* Banner section ____________________________________________________________________________________ */}

@@ -1,3 +1,7 @@
 {
-  "cSpell.words": ["bumpp"]
+  "cSpell.words": [
+    "bumpp",
+    "gymrat"
+  ],
+  "postman.settings.dotenv-detection-notification-visibility": false
 }
