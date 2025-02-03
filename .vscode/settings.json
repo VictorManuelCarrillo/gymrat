@@ -3,5 +3,8 @@
     "bumpp",
     "gymrat"
   ],
-  "postman.settings.dotenv-detection-notification-visibility": false
+  "postman.settings.dotenv-detection-notification-visibility": false,
+  "conventionalCommits.scopes": [
+    "ui"
+  ]
 }
