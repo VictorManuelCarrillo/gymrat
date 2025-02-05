@@ -2,4 +2,3 @@ pnpm run eslint:format
 pnpm run lint
 pnpm run prettier:format
 pnpm run prettier:check
-pnpm commitlint --edit 
