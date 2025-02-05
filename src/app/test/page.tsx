@@ -1,22 +1,10 @@
-import { MenuItem, FormControl, InputLabel } from '@mui/material';
-import { Select } from '~/components/atoms/inputs/Select';
-import { Slider } from '~/components/atoms/inputs/Slider';
+import { Img } from '~/components/atoms/surfaces/Img';
 
 export default function TestPage() {
   return (
     <div>
-      <div>
-        <FormControl>
-          <InputLabel id="demo-simple-select-label">ola</InputLabel>
-          <Select labelId="demo-simple-select-label" sx={{ width: '500px' }}>
-            <MenuItem>ola</MenuItem>
-            <MenuItem>ola</MenuItem>
-            <MenuItem>ola</MenuItem>
-          </Select>
-        </FormControl>
-      </div>
-      <div>
-        <Slider aria-label="Temperature" defaultValue={30} valueLabelDisplay="auto" shiftStep={30} step={10} marks min={10} max={110} />
+      <div style={{ position: 'relative', width: '100%', maxWidth: '80px', aspectRatio: '1/1' }}>
+        <Img src="/img/image.png" alt="Imagen responsive" priority />
       </div>
     </div>
   );
