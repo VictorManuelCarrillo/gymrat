@@ -3,4 +3,5 @@ next-env.d.ts
 node_modules
 public
 yarn.lock
+pnpm-lock.yaml
 package-lock.json

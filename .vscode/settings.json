@@ -1,10 +1,5 @@
 {
-  "cSpell.words": [
-    "bumpp",
-    "gymrat"
-  ],
+  "cSpell.words": ["bumpp", "gymrat"],
   "postman.settings.dotenv-detection-notification-visibility": false,
-  "conventionalCommits.scopes": [
-    "ui"
-  ]
+  "conventionalCommits.scopes": ["ui"]
 }
