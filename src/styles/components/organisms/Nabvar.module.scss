@@ -1,0 +1,45 @@
+@use '../../base/mixins' as *;
+
+// desktop menu
+.desktop_menu {
+  display: flex;
+  @include respond(md) {
+    display: none;
+  }
+  &__button {
+    color: white;
+  }
+  &__menu {
+    margin: {
+      left: 0.5%;
+      top: 1rem;
+    }
+  }
+}
+// mobile menu
+.mobile_menu{
+  &__drawer_screen {
+    width: 80vw;
+  }
+}
+// component
+.navbar {
+  &__toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__toggle_menu_button {
+    display: none;
+    right: 5%;
+    bottom: 5%;
+    position: fixed;
+    width: 3rem;
+    height: 3rem;
+    background-color: red;
+    @include respond(md) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

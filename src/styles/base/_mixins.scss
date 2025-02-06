@@ -13,3 +13,18 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+// Media queries
+@mixin respond($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: 599px) { @content; } // Menos de 600px
+  } @else if $breakpoint == sm {
+    @media (max-width: 899px) { @content; } // Menos de 900px
+  } @else if $breakpoint == md {
+    @media (max-width: 1199px) { @content; } // Menos de 1200px
+  } @else if $breakpoint == lg {
+    @media (max-width: 1535px) { @content; } // Menos de 1536px
+  } @else if $breakpoint == xl {
+    @media (min-width: 1536px) { @content; } // 1536px o más
+  }
+}

@@ -16,6 +16,7 @@ interface BaseButtonProps {
   loading?: boolean;
   loadingIndicator?: React.ReactNode;
   loadingPosition?: 'center' | 'end' | 'start';
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   newTab?: boolean;
   size?: 'small' | 'medium' | 'large';
   sx?: React.CSSProperties;
@@ -47,10 +48,8 @@ const LinkWrapper: React.FC<{
   newTab?: boolean;
   children: ReactNode;
 }> = ({ href, newTab, children }) => (
-  <Link href={href} passHref>
-    <a target={newTab ? '_blank' : undefined} rel={newTab ? 'noopener noreferrer' : undefined}>
-      {children}
-    </a>
+  <Link href={href} target={newTab ? '_blank' : undefined} rel={newTab ? 'noopener noreferrer' : undefined}>
+    {children}
   </Link>
 );
 
@@ -80,9 +79,7 @@ const ButtonBase: React.FC<ButtonProps> = ({
 
   return href ? (
     <LinkWrapper href={href} newTab={newTab}>
-      <MuiButton component="a" {...commonProps}>
-        {children}
-      </MuiButton>
+      <MuiButton {...commonProps}>{children}</MuiButton>
     </LinkWrapper>
   ) : (
     <MuiButton component={component} {...commonProps}>
@@ -97,7 +94,7 @@ const IconButtonBase: React.FC<IconButtonProps> = ({ children, href, newTab, cla
 
   return href ? (
     <LinkWrapper href={href} newTab={newTab}>
-      <MuiIconButton className={iconButtonClasses} edge={edge} style={sx} component="a" {...rest}>
+      <MuiIconButton className={iconButtonClasses} edge={edge} style={sx} {...rest}>
         {children}
       </MuiIconButton>
     </LinkWrapper>
