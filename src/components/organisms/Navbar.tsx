@@ -169,6 +169,7 @@ export const Navbar: React.FC = () => {
           <Box>
             <DesktopMenu />
           </Box>
+
           <Box>
             <Button variant="contained" color="secondary">
               Iniciar sesión
