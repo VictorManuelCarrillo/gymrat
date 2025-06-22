@@ -2,7 +2,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { GlobalCssPriority } from '~/components/Material/MaterialCacheLayout';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import '~/styles/main.scss';
+// import '~/styles/main.scss';
 
 const antonSC = localFont({
   src: './fonts/AntonSC-R.ttf',
