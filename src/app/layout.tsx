@@ -1,15 +1,23 @@
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import { GlobalCssPriority } from '~/components/Material/MaterialCacheLayout';
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.css';
+import localFont from 'next/font/local';
+import '~/styles/main.scss';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
+const antonSC = localFont({
+  src: './fonts/AntonSC-R.ttf',
+  variable: '--font-anton',
+  weight: '100 900',
 });
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+const exo2 = localFont({
+  src: './fonts/Exo2-VF.ttf',
+  variable: '--font-exo2',
+  weight: '100 900',
+});
+const rubik = localFont({
+  src: './fonts/Rubik-VF.ttf',
+  variable: '--font-rubik',
+  weight: '100 900',
 });
 
 export const metadata: Metadata = {
@@ -24,7 +32,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+      <body className={`${antonSC.variable} ${exo2.variable} ${rubik.variable} antialiased`}>
+        {/* //? for material ui */}
+        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+          <GlobalCssPriority>{children}</GlobalCssPriority>
+        </AppRouterCacheProvider>
+      </body>
     </html>
   );
 }
