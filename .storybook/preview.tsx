@@ -1,6 +1,5 @@
 import { Preview } from '@storybook/react';
 
-
 // Asegúrate de que 'GlobalCssPriority' esté correctamente importado desde la ruta correspondiente
 import { GlobalCssPriority } from '../src/components/Material/MaterialCacheLayout';
 
