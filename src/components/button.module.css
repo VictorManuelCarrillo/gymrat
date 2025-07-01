@@ -1,17 +1,17 @@
-.border{
-border-radius: 5px;
-padding: 12px;
-background-color: aquamarine;
+.border {
+  border-radius: 5px;
+  padding: 12px;
+  background-color: aquamarine;
 }
 
-.outlined{
-border-radius:15px;
-padding: 12px;
-background-color: rgb(69, 87, 145);
+.outlined {
+  border-radius: 15px;
+  padding: 12px;
+  background-color: rgb(69, 87, 145);
 }
 
-.text{
-border-radius: 10px;
-padding: 12px;
-background-color: rgb(61, 143, 86);
+.text {
+  border-radius: 10px;
+  padding: 12px;
+  background-color: rgb(61, 143, 86);
 }
