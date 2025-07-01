@@ -1,4 +1,13 @@
-pnpm run eslint:format
-pnpm run lint
-pnpm run prettier:format
-pnpm run prettier:check
+echo "\n\n 🔍  \e[1;34mVerificando Lint del proyecto...\e[0m\n"
+
+pnpm lint
+
+pnpm eslint:format
+
+echo "\n\n 🪄  \e[1;34mFormateando código...\e[0m\n"
+
+pnpm prettier:check
+
+pnpm prettier:format
+
+git add .
