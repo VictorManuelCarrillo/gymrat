@@ -1,3 +1,4 @@
+import { CssBaseline } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { GlobalCssPriority } from '~/components/Material/MaterialCacheLayout';
 import type { Metadata } from 'next';
@@ -32,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${antonSC.variable} ${exo2.variable} ${rubik.variable} antialiased`}>
+        <CssBaseline />
         {/* //? for material ui */}
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <GlobalCssPriority>{children}</GlobalCssPriority>
