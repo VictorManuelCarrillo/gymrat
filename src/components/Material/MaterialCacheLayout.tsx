@@ -17,6 +17,7 @@ const CacheProv = ({ children }: { children: React.ReactNode }) => {
 
 export const GlobalCssPriority = ({ children }: { children: React.ReactNode }) => {
   return (
+    //? esto se puede des comentar si hay problemas con css
     // <StyledEngineProvider injectFirst>
     <CacheProv>
       {/* You can add another vendors if is required */}
